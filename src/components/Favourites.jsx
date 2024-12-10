@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { REMOVE_FROM_FAVOURITE } from "../redux/actions";
 
 const Favourites = () => {
-  const favourites = useSelector((state) => state.favourites.content);
+  const favourites = useSelector((state) => state.favourites.favourites.content);
   const dispatch = useDispatch();
   return (
     <>

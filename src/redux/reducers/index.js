@@ -1,10 +1,7 @@
-import { ADD_TO_FAVOURITES, GET_JOBS, REMOVE_FROM_FAVOURITE } from "../actions";
+import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITE } from "../actions";
 
 const initialState = {
   favourites: {
-    content: []
-  },
-  jobs: {
     content: []
   }
 };
@@ -25,14 +22,6 @@ const mainReducer = (state = initialState, action) => {
         favourites: {
           ...state.favourites,
           content: state.favourites.content.filter((favCompany) => favCompany !== action.payload)
-        }
-      };
-    case GET_JOBS:
-      return {
-        ...state,
-        jobs: {
-          ...state.jobs,
-          content: action.payload
         }
       };
 
