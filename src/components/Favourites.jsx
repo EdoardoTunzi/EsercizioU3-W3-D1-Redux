@@ -1,7 +1,7 @@
 import { Button, Col, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { REMOVE_FROM_FAVOURITE } from "../redux/actions";
+import { removeFromFavourites } from "../redux/actions";
 
 const Favourites = () => {
   const favourites = useSelector((state) => state.favourites.favourites.content);
@@ -14,15 +14,7 @@ const Favourites = () => {
           <ListGroup className="my-3">
             {favourites.map((company, index) => (
               <ListGroup.Item key={index}>
-                <Button
-                  className=" btn btn-danger me-3"
-                  onClick={() =>
-                    dispatch({
-                      type: REMOVE_FROM_FAVOURITE,
-                      payload: company
-                    })
-                  }
-                >
+                <Button className=" btn btn-danger me-3" onClick={() => dispatch(removeFromFavourites(company))}>
                   X
                 </Button>
                 <Link to={`/${company}`}>{company}</Link>
